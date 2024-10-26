@@ -15,28 +15,7 @@ import { InvestmentResultComponent } from "./investment-result/investment-result
 })
 export class AppComponent {
   title = 'investement-calculator';
-  resultData ?: ResultData[]; //this is the syntax for array of this object type need to add [] at end
+  //resultData ?: ResultData[]; //this is the syntax for array of this object type need to add [] at end
 
-  calculateInvestmentResults(data : UserData) {
-    const {initialInvestment, annualInvestment, expectedReturn, duration} = data; //JS method to destructure data and give value to each variables.
-    const annualData = [];
-    let investmentValue = initialInvestment;
   
-    for (let i = 0; i < duration; i++) {
-      const year = i + 1;
-      const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-      investmentValue += interestEarnedInYear + annualInvestment;
-      const totalInterest =
-        investmentValue - annualInvestment * year - initialInvestment;
-      annualData.push({
-        year: year,
-        interest: interestEarnedInYear,
-        valueEndOfYear: investmentValue,
-        annualInvestment: annualInvestment,
-        totalInterest: totalInterest,
-        totalAmountInvested: initialInvestment + annualInvestment * year,
-      });
-    }
-    this.resultData = annualData;
-  }
 }

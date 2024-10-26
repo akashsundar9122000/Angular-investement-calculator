@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { ResultData } from '../result.model';
+import { Component, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { InvertmentServiceService } from '../invertment-service.service';
 
 @Component({
   selector: 'app-investment-result',
@@ -10,5 +10,8 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './investment-result.component.css'
 })
 export class InvestmentResultComponent {
-@Input ({required:true}) result ?: ResultData[]; //this is the syntax for array of this object type need to add [] at end
+  private investmentService = inject(InvertmentServiceService); //another method to inject service
+  get result(){
+    return this.investmentService.resultData;
+  }
 }
