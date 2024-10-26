@@ -4,8 +4,6 @@ import { InvertmentServiceService } from '../invertment-service.service';
 
 @Component({
   selector: 'app-user-input',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './user-input.component.html',
   styleUrl: './user-input.component.css'
 })
@@ -23,8 +21,8 @@ export class UserInputComponent {
     }); //we can simply add '+' before the string to convert it to number in angular
     this.initialInvestement = '0';
     this.annualInvestment = '0';
-    this.expectedReturn = '0';
-    this.duration = '0';
+    this.expectedReturn = '5';
+    this.duration = '10';
   }
 
 }

@@ -8,8 +8,6 @@ import { InvestmentResultComponent } from "./investment-result/investment-result
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UserInputComponent, InvestmentResultComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
