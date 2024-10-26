@@ -1,4 +1,4 @@
-@if (!result) {
+@if (!result()) {
 <p class="center">Please enter some values and press "Calculate"</p>
 }
 @else {
@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (data of result; track data.year) {
+        @for (data of result(); track data.year) {
             <tr>
                 <td>{{data.year}}</td>
                 <td>{{data.valueEndOfYear | currency:'INR'}}</td> <!--currency pipe to format data and INR argument to display it in indian rupees-->

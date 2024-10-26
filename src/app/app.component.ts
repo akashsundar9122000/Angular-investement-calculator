@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { UserInputComponent } from "./user-input/user-input.component";
@@ -15,7 +15,7 @@ import { InvestmentResultComponent } from "./investment-result/investment-result
 })
 export class AppComponent {
   title = 'investement-calculator';
-  resultData ?: ResultData[]; //this is the syntax for array of this object type need to add [] at end
+  resultData = signal<ResultData[] | undefined>(undefined); //this is the syntax for array of this object type need to add [] at end
 
   calculateInvestmentResults(data : UserData) {
     const {initialInvestment, annualInvestment, expectedReturn, duration} = data; //JS method to destructure data and give value to each variables.
@@ -37,6 +37,6 @@ export class AppComponent {
         totalAmountInvested: initialInvestment + annualInvestment * year,
       });
     }
-    this.resultData = annualData;
+    this.resultData.set(annualData);
   }
 }
